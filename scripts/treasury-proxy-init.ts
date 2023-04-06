@@ -1,9 +1,9 @@
 import { ethers } from "hardhat";
 const { getContractAt } = ethers;
 
-const comptroller = "0x396Caaa6d2ddf61a981C9A098aF390136138F83c";
-const treasuryImpl = "0x409a4d1649D9dF34E2AC3C5D005aBff018B00E8d";
-const treasuryProxy = "0x510Cea357a331E78003703Aaa2308E93996C3F0d";
+const comptroller = "0x1775286Cbe9db126a95AbF52c58a3214FCA26803";
+const treasuryImpl = "";
+const treasuryProxy = "0x0529CEa607586B33148B77c165f88362c9B00B11";
 
 async function main() {
     const [deployer] = await ethers.getSigners();

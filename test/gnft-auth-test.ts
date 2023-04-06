@@ -26,6 +26,7 @@ describe("Testing gNFT authorization modifiers", function () {
 
         const priceTo1Segment = await segmentManagement.getActivationPrice(0, 1, false);
         await tpi.transfer(bob.address, parseEther("10000"));
+        await tpi.connect(bob).approve(segmentManagement.address, priceTo1Segment);
         await segmentManagement.connect(bob)[activateSegments](0, 1, weth.address);
         const data = await gnft.getTokenData(0);
         expect(data.slot0.activeSegment).to.equal(1);

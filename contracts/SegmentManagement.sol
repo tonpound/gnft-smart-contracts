@@ -196,7 +196,7 @@ contract SegmentManagement is
         uint256 avgPrice;
         if (totalInactiveSegments > 0) {
             try TPI().getCirculatingSupply() returns (uint256 supply) {
-                avgPrice = supply / totalInactiveSegments;
+                avgPrice = MathUpgradeable.min(supply / totalInactiveSegments, Constants.ACTIVATION_MAX_PRICE);
             } catch {}
         }
         avgPrice = MathUpgradeable.max(avgPrice, Constants.ACTIVATION_MIN_PRICE) * numberOfSegments;
@@ -209,7 +209,7 @@ contract SegmentManagement is
             data0.tokenType,
             Constants.ParameterType.ActivationNominator
         );
-        return (avgPrice * typeNominator) / Constants.ACTIVATION_DENOMINATOR;
+        return (avgPrice * typeNominator);
     }
 
     function activateSegments(
@@ -258,7 +258,7 @@ contract SegmentManagement is
             _totalInactiveSegments = totalInactive - segments;
         }
         _updateSlot0(tokenId, data0);
-        TPI().burnFrom(msg.sender, activationPrice);
+        TPI().transferFrom(msg.sender, Constants.DEAD_ADDRESS, activationPrice);
         emit ActivatedSegments(tokenId, newSegment);
     }
 

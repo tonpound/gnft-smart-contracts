@@ -1,9 +1,9 @@
 import { ethers } from "hardhat";
 
-const impl_address = "0x2D2282691022b659b52d945a5145B49c66F46ab5";
+const impl_address = "0x2e86fA4440d93b1BFfEa5cA673314ef54216D0a8";
 
-const arg1 = "0x3a487ddbC5d704D22EB3A1d9f345065744E10f3C";
-const arg2 = "0x396Caaa6d2ddf61a981C9A098aF390136138F83c";
+const arg1 = "0xE9dFa04C140904253242a0cC44f29f725626b43f";
+const arg2 = "0x";
 const args0 = [arg1, arg2];
 const args1 = [];
 
@@ -16,7 +16,7 @@ async function main() {
         try {
             await hre.run("verify:verify", {
                 address: impl_address,
-                constructorArguments: args1
+                constructorArguments: args0
             });
             console.log("Contract is Verified");
         } catch (error: any) {

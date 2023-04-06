@@ -7,13 +7,15 @@ export async function deployAndVerify(contractName: string, args: any[]) {
     const contract = await Contract.deploy(...args);
     console.log(`${contractName} deployed to: ${contract.address}`);
 
-    await contract.deployed();
+    const tx = await contract.deployed();
     console.log("Done");
 
     const networkName = network.name;
     console.log("Network:", networkName);
     if (networkName != "hardhat") {
         console.log("Verifying contract...");
+        console.log('Waiting for 2 confirmations before verification');
+        await contract.deployTransaction.wait(2);
         try {
             await run("verify:verify", {
                 address: contract.address,

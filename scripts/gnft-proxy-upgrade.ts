@@ -1,9 +1,9 @@
 import { ethers } from "hardhat";
 const { getContractAt } = ethers;
 
-const gnftImplPrevious = "0x2D2282691022b659b52d945a5145B49c66F46ab5";;
-const gnftImplLatest = "0x812198a973fb64ed4696Fb959Db57B4555f93f0A";
-const gnftProxy = "0x3a487ddbC5d704D22EB3A1d9f345065744E10f3C";
+const gnftImplPrevious = "";;
+const gnftImplLatest = "0xAeFf026fea6d7A33d72c3D9c91F9Ed2054d4a05B";
+const gnftProxy = "0x2e86fA4440d93b1BFfEa5cA673314ef54216D0a8";
 
 async function main() {
     const [deployer] = await ethers.getSigners();

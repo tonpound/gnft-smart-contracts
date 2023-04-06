@@ -44,10 +44,10 @@ export async function prepareEnv(): Promise<prepareEnvResult> {
     const comptroller = await Comptroller.deploy();
 
     const TreasuryV1 = await ethers.getContractFactory("TreasuryMockV1");
-    const gNFTV1 = await ethers.getContractFactory("gNFT");
+    const gNFTV1 = await ethers.getContractFactory("gNFTMockV1");
     const gnftImpl = await gNFTV1.deploy();
     const gnftProxy = await Proxy.deploy(gnftImpl.address, "0x");
-    const gnft = await getContractAt("gNFT", gnftProxy.address);
+    const gnft = await getContractAt("gNFTMockV1", gnftProxy.address);
 
     const treasury = await upgrades.deployProxy(TreasuryV1, [comptroller.address]);
     const Vault = await ethers.getContractFactory("Vault");

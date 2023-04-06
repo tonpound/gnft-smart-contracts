@@ -19,7 +19,7 @@ describe("Testing gNFT segments", function () {
         const priceTo1Segment = await segmentManagement.getActivationPrice(token0, 1, false);
         await expect(
             segmentManagement.connect(bob)[activateSegment](token0, 1, weth.address)
-        ).to.be.revertedWith("ERC20: burn amount exceeds balance");
+        ).to.be.revertedWith("ERC20: insufficient allowance");
         await tpi.transfer(bob.address, parseEther("10000"));
         await tpi.connect(bob).approve(segmentManagement.address, priceTo1Segment);
         await segmentManagement.connect(bob)[activateSegment](token0, 1, weth.address);

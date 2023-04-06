@@ -1,9 +1,10 @@
 import { ethers } from "hardhat";
 const { getContractAt } = ethers;
 
-const vault = "0x83c83f349B17CbcD70D7Be7BFc0d60e37dea281f";
-const admin = "0x03eE60B0De0d9b48C5A09E73c3fdF80fEB86AeEF";
-const segmentProxy = "0x782F195f6D63eD01EEb00Ce62Bd5C3b821454412";
+const vault = "0x8239ce5716ED6c7fa63Cb65079f082A5Def228c0";
+const manager = "0x3aA3595cB441E7e4c6213aC95D81058AEC66d6cc";
+const pauser = "0x624539b4171c4a4FA652165352952f7b4B2Ca166";
+const segmentProxy = "0x82018eeb2EB992b98d12CaDA73E55a30E00c84d5";
 
 async function main() {
     const [deployer] = await ethers.getSigners();
@@ -11,9 +12,9 @@ async function main() {
     const networkName = hre.network.name;
 
     const segment = await getContractAt("SegmentManagement", segmentProxy);
-    await segment.initialize(vault, admin, admin, {
+    await segment.initialize(vault, manager, pauser/*, {
         gasLimit: 500000,
-    });
+    }*/);
     console.log("SegmentManagement have been initialized");
 }
 

@@ -5,12 +5,12 @@ pragma solidity ^0.8.4;
 library Constants {
     // gNFT constants
     uint8 internal constant VOTE_WEIGHT_TOPAZ = 1;
-    uint8 internal constant VOTE_WEIGHT_EMERALD = 11;
-    uint8 internal constant VOTE_WEIGHT_DIAMOND = 121;
+    uint8 internal constant VOTE_WEIGHT_EMERALD = 2;
+    uint8 internal constant VOTE_WEIGHT_DIAMOND = 3;
 
     uint8 internal constant REWARD_WEIGHT_TOPAZ = 1;
     uint8 internal constant REWARD_WEIGHT_EMERALD = 11;
-    uint8 internal constant REWARD_WEIGHT_DIAMOND = 121;
+    uint8 internal constant REWARD_WEIGHT_DIAMOND = 120;
 
     uint8 internal constant LIQUIDITY_FOR_MINTING_TOPAZ = 1; // mul by EXP_1E20
     uint8 internal constant LIQUIDITY_FOR_MINTING_EMERALD = 1; // mul by EXP_1E20
@@ -39,15 +39,16 @@ library Constants {
     uint8 internal constant SEGMENTS_NUMBER = 12;
     uint256 internal constant REWARD_ACCUMULATING_PERIOD = 365 days;
     uint256 internal constant ACTIVATION_MIN_PRICE = 1000e18;
-    uint256 internal constant ACTIVATION_DENOMINATOR = 1e3;
+    uint256 internal constant ACTIVATION_MAX_PRICE = 5000e18;
+    uint256 internal constant ACTIVATION_DENOMINATOR = 1;
     uint256 internal constant AIRDROP_DISCOUNT_NOMINATOR = 0;
     uint256 internal constant AIRDROP_DISCOUNT_DENOMINATOR = 1e6;
     uint256 internal constant EXP_ORACLE = 1e18;
     uint256 internal constant EXP_LIQUIDITY = 1e20;
-    string internal constant BASE_URI = "Not supported";
+    string internal constant BASE_URI = "https://tonpound.com/api/token-data/metadata/";
 
     //@notice uint8 parameters packed into bytes constant
-    bytes internal constant M = hex"010b79010b79010101010a64010000000a0a000001000000";
+    bytes internal constant M = hex"010203010b78010101010a64010000000a0a000001000000";
 
     // Treasury constants
     uint256 internal constant EXP_REWARD_PER_SHARE = 1e12;
@@ -58,6 +59,7 @@ library Constants {
     // Common constants
     uint256 internal constant DEFAULT_DECIMALS = 18;
     bytes32 internal constant DEFAULT_ADMIN_ROLE = 0x00;
+    address internal constant DEAD_ADDRESS = 0x000000000000000000000000000000000000dEaD;
 
     function TYPE_PARAMETERS(uint256 col, uint256 row) internal pure returns (uint8) {
         unchecked {

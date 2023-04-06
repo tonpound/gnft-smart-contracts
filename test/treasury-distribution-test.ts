@@ -169,7 +169,7 @@ describe("Testing Treasury rewards distribution", function () {
         const bobBalanceBefore = await usd.balanceOf(bob.address);
         await segmentManagement.connect(alice)[mintMarkets]([weth.address], 0, []);
         await tpi.transfer(alice.address, priceTo12Segments);
-        await tpi.connect(alice).approve(gnft.address, priceTo12Segments);
+        await tpi.connect(alice).approve(segmentManagement.address, priceTo12Segments);
         await weth.connect(alice).approve(segmentManagement.address, liquidityForLock);
         await segmentManagement.connect(alice)[activateSegmentMarket](token11, 12, weth.address);
         const aliceBalanceBefore = await usd.balanceOf(alice.address);

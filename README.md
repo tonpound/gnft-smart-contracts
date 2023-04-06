@@ -1,11 +1,3 @@
-## Overview
-Governance NFT (gNFT) to manage Tonpound protocol. They are ERC-721 non-fungible tokens that grant users voting power and other benefits in using the Tonpound protocol.
-The process of upgrading or "crafting" gNFTs as opposed to instantly buying them is implemented to ensure a gradual and decentralized transfer of voting power from the developer team to the active community members.
-
-Each gNFT has a 12 segment structure and can be one of 3 types (topaz, emerald, diamond). First 6 segments build the core of the gNFT, while the rest 6 represent its facets. When opening a facet, users can randomly receive certain prizes such as an airdrop of TPI. Cores, on contrary, do not hold any bonuses but must be opened first before reaching the facets.
-
-With all 12 facets opened, a gNFT becomes fully functional. Some benefits from holding an upgraded gNFT include share of profits from the protocol income and access to Tonpound DAO.
-
 ## Install
 
     yarn install

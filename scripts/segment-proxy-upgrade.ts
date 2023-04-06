@@ -1,9 +1,9 @@
 import { ethers } from "hardhat";
 const { getContractAt } = ethers;
 
-const segmentImplPrevious = "0x6a76BB05Af2559B681fFcD44c662a41EF95B518f";
-const segmentLatest = "0xB110452Da913fdF27519FDf5F8ACd7C0A9C7dC6D";
-const segmentProxy = "0x782F195f6D63eD01EEb00Ce62Bd5C3b821454412";
+const segmentImplPrevious = "";
+const segmentLatest = "0x3853AbD4560e0590eB92cFed9C9a132e35c6a53a";
+const segmentProxy = "0x82018eeb2EB992b98d12CaDA73E55a30E00c84d5";
 
 async function main() {
     const [deployer] = await ethers.getSigners();

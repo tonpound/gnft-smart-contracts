@@ -20,14 +20,14 @@ module.exports = {
         hardhat: {
             forking: {
                 enabled: false,
-                url: "https://YOUR_RPC_NODE",
+                url: "https://rpc.ankr.com/eth",
                 //blockNumber: 17130449
 
                 // If using blockNumber, RPC node should be archive
             },
         },
         ethereumMainnet: {
-            url: "https://rinkeby.infura.io/v3/" + config.infuraIdProject,
+            url: "https://rpc.ankr.com/eth",
             accounts: config.mainnetAccounts,
         },
         ropsten: {

@@ -6,8 +6,8 @@ async function main() {
     console.log("Deployer address:", deployer.address);
     const networkName = hre.network.name;
 
-    const gnft = "0x3a487ddbC5d704D22EB3A1d9f345065744E10f3C";
-    const comptroller = "0x396Caaa6d2ddf61a981C9A098aF390136138F83c";
+    const gnft = "0x2e86fA4440d93b1BFfEa5cA673314ef54216D0a8";
+    const comptroller = "0x1775286Cbe9db126a95AbF52c58a3214FCA26803";
     const args = [gnft, comptroller];
 
     await utils.deployAndVerify("SegmentManagement", args);

@@ -35,7 +35,7 @@ describe("Testing gNFT UUPS proxy deployment", function () {
         await weth.transfer(bob.address, parseEther("1000"));
         await segmentManagement.connect(bob)[mintMarkets]([weth.address], 0, []);
 
-        expect(await gnft.tokenURI(0)).to.equal("Not supported0");
+        expect(await gnft.tokenURI(0)).to.equal("1-0");
 
         const ImplV2 = await ethers.getContractFactory("gNFTMockV2");
         const implV2 = await ImplV2.deploy();
