@@ -15,12 +15,22 @@ interface ICToken is IERC20MetadataUpgradeable {
     function _reduceReserves() external returns (uint256);
 
     /**
+     * @notice Block number that interest was last accrued at
+     */
+    function accrualBlockNumber() external view returns(uint256);
+
+    /**
      * @notice Get the underlying balance of the `owner`
      * @dev This also accrues interest in a transaction
      * @param owner The address of the account to query
      * @return The amount of underlying owned by `owner`
      */
     function balanceOfUnderlying(address owner) external returns (uint256);
+
+    /**
+     * @notice Contract which oversees inter-cToken operations
+     */
+    function comptroller() external returns (address);
 
     /**
      * @notice Accrue interest then return the up-to-date exchange rate
@@ -34,6 +44,32 @@ interface ICToken is IERC20MetadataUpgradeable {
      * @return Calculated exchange rate scaled by 1e18
      */
     function exchangeRateStored() external view returns (uint256);
+
+    /**
+     * @notice Get cash balance of this cToken in the underlying asset
+     * @return The quantity of underlying asset owned by this contract
+     */
+    function getCash() external view returns (uint256);
+
+    /**
+     * @notice Model which tells what the current interest rate should be
+     */
+    function interestRateModel() external view returns (address);
+
+    /**
+     * @notice Fraction of interest currently set aside for reserves
+     */
+    function reserveFactorMantissa() external view returns (uint256);
+
+    /**
+     * @notice Total amount of outstanding borrows of the underlying in this market
+     */
+    function totalBorrows() external view returns (uint256);
+
+    /**
+     * @notice Total amount of reserves of the underlying held in this market
+     */
+    function totalReserves() external view returns (uint256);
 
     /**
      * @notice Underlying asset for this CToken

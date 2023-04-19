@@ -2,7 +2,7 @@ import { ethers } from "hardhat";
 const { getContractAt } = ethers;
 
 const segmentImplPrevious = "";
-const segmentLatest = "0x3853AbD4560e0590eB92cFed9C9a132e35c6a53a";
+const segmentLatest = "0xdCD2Cc059bff18F33092EAE878b5813F44f506cc";
 const segmentProxy = "0x82018eeb2EB992b98d12CaDA73E55a30E00c84d5";
 
 async function main() {

@@ -20,7 +20,7 @@ module.exports = {
         hardhat: {
             forking: {
                 enabled: false,
-                url: "https://rpc.ankr.com/eth",
+                url: "https://rpc.ankr.com/eth_goerli",
                 //blockNumber: 17130449
 
                 // If using blockNumber, RPC node should be archive

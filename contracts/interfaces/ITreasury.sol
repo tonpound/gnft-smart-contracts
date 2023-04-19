@@ -42,6 +42,14 @@ interface ITreasury {
     /// @notice Emitted in governance function when reserveFund variable is updated
     event ReserveFundUpdated(address oldValue, address newValue);
 
+    /// @notice             View method to read 'fixedRewardPayments' mapping of
+    ///                     solid reward payments for tokenId
+    /// @param rewardToken  Address of reward token to read mapping for
+    /// @param tokenId      gNFT tokenId to read mapping for
+    /// @return             Stored bool value of 'fixedRewardPayments[rewardToken][tokenId], 
+    ///                     that can be claimed regardless of tokenId registration status
+    function fixedRewardPayments(address rewardToken, uint256 tokenId) external view returns (uint256);
+
     /// @notice             View method to read all supported reward tokens
     /// @return             Array of addresses of registered reward tokens
     function getRewardTokens() external view returns (address[] memory);
@@ -80,6 +88,14 @@ interface ITreasury {
     /// @param tokenId      tokenId of gNFT token to read
     /// @return             Stored bool value of 'registeredTokenIds[tokenId]', true if registered
     function registeredTokenIds(uint256 tokenId) external view returns (bool);
+
+    /// @notice             View method to read reserve factor
+    /// @return             Fraction (in bps) of rewards going to reserves, can be set to 0
+    function reserveBPS() external view returns (uint256);
+
+    /// @notice             View method to read address of reserve fund
+    /// @return             Address to collect reserved part of rewards, can be set to 0
+    function reserveFund() external view returns (address);
 
     /// @notice             View method to read 'rewardPerShare' mapping of
     ///                     tracked balances of Treasury contract to properly distribute rewards
